@@ -120,4 +120,9 @@ class Follow(models.Model):
     class Meta:
         verbose_name = 'follow'
         verbose_name_plural = 'follows'
-        unique_together = ('user', 'following',)
+        constraints = [
+            models.UniqueConstraint(
+                fields=['user', 'following'],
+                name='unique_name_user'
+            )
+        ]
