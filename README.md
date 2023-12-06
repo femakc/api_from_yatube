@@ -1,11 +1,11 @@
-### Опмсание проекта:
+### Описание проекта:
 
-Проект **API Yatube** преднозначен для взоимодействия с сервисом **Yatub** через 
-програмный интерфейс по схеме **REST API**. Сделан при помощи [**Django Rest Framework**](https://www.django-rest-framework.org/)
+Проект **API Yatube** предназначен для взаимодействия с сервисом **Yatub** через 
+программный интерфейс по схеме **REST API**. Сделан при помощи [**Django Rest Framework**](https://www.django-rest-framework.org/)
 
-С помощью проекта **API Yatube** возможно отправлят Http - запросы к сервису, для получения или изменения информации от сервиса **Yatube**
+С помощью проекта **API Yatube** возможно отправлять Http - запросы к сервису, для получения или изменения информации от сервиса **Yatube**
 
-В проекте реализованна возможность аунтефикации по **JWT Token**
+В проекте реализована возможность аутентификации по **JWT Token**
 
 Настроена документация эндпойнтов через Redoc 
 ```
@@ -16,50 +16,50 @@
 
 Клонировать репозиторий и перейти в него в командной строке:
 
-```
+```Bash
 git clone git@github.com:femakc/api_fina.git
 ```
 
-```
+```Bash
 cd api_final_yatube
 ```
 
-Cоздать и активировать виртуальное окружение:
+Создать и активировать виртуальное окружение:
 
-```
-python3 -m venv env
+```Bash
+python3 -m venv venv
 ```
 
-```
-source env/bin/activate
+```Bash
+source venv/bin/activate
 ```
 
 Установить зависимости из файла requirements.txt:
 
-```
+```Bash
 python3 -m pip install --upgrade pip
 ```
 
-```
+```Bash
 pip install -r requirements.txt
 ```
 
 Выполнить миграции:
 
-```
-python3 manage.py migrate
+```Bash
+python manage.py migrate
 ```
 
 Запустить проект:
 
-```
-python3 manage.py runserver
+```Bash
+python manage.py runserver
 ```
 
 ### Примеры запросов к API Yatube:
 
 **GET** ``http://127.0.0.1:8000/api/v1/posts/`` 
-```
+```json
 [
     {
       "id": 0,
@@ -71,9 +71,9 @@ python3 manage.py runserver
     }
 ]
 ```
-Доступна пагиниция через параметры **limit** и **offset**
+Доступна пагинация через параметры **limit** и **offset**
 **GET** ``hhttp://127.0.0.1:8000/api/v1/posts/?offset=2&limit=2`` 
-```
+```json
 {
     "count": 5,
     "next": "http://127.0.0.1:8000/api/v1/posts/?limit=2&offset=4",
@@ -100,7 +100,7 @@ python3 manage.py runserver
 ```
 
 **GET** ``http://127.0.0.1:8000/api/v1/posts/{id}/``
-```
+```json
 {
   "id": 0,
   "author": "string",
@@ -111,7 +111,7 @@ python3 manage.py runserver
 }
 ```
 **POST** ``http://127.0.0.1:8000/api/v1/posts/``
-```
+```json
 body
 {
   "text": "string",
@@ -140,4 +140,3 @@ body
 "post": 0
 }
 ```
-
